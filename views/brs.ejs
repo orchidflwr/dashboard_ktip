@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../assets/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.css" />
+    <style>
+        body,
+        div,
+        p,
+        span {
+            font-family: 'Poppins';
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <%- include('header'); %>
+        <div class="font-sans grid h-svh w-auto overflow-scroll gap-y-4 bg-slate-200">
+            <!-- first section -->
+            <!-- <div class="font-bold text-center ml-3 mr-3 pt-24 text-[36px]"> Wisatawan Nusantara</div> -->
+
+            <div class="bg-white grid ml-3 mr-3 rounded shadow p-4" style="margin-top:4.6rem;">
+
+
+                <table id="brsTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Tahun</th>
+                            <th class="text-center">Bulan</th>
+                            <th class="text-center">Link</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% let months=['Jan', 'Feb' , 'Mar' , 'Apr' , 'May' , 'Jun' , 'Jul' , 'Aug' , 'Sep' , 'Oct'
+                            , 'Nov' , 'Dec' ]; let date=new Date(); let month=date.getMonth()+ 1; let
+                            year=date.getFullYear(); let k=year-2022; let nMonths=k*12+month; 
+                            for(let i=0;i<nMonths;i++)
+                            {%>
+                            <tr>
+
+                                <% let temp=data.filter(a=> a.id == i+1); let j=i+1; 
+                                if(temp[0]!=null){%>
+                                    <td>
+                                        <%=nMonths-i%>
+                                    </td>
+                                    <td>
+                                        <%=temp[0].Tahun%>
+                                    </td>
+                                    <td>
+                                        <%=temp[0].Bulan%>
+                                    </td>
+                                    <td id="<%='container_'+temp[0].id%>">
+                                        <a id="<%='brs_'+temp[0].id%>" class="underline" target='_blank'
+                                            href="<%=temp[0].Link%>">
+                                            <%=temp[0].Link%>
+                                        </a>
+                                    </td>
+
+                                    <td class="flex">
+                                        <button id="<%='btnEdit'+'_'+j%>"
+                                            class="editBtn shadow p-2 rounded w-1/2">Edit</button>
+
+                                        <button id="<%='btnCancel'+'_'+j%>"
+                                            class="disabled cancelBtn shadow p-2 rounded w-1/2 disabled:opacity-75"
+                                            disabled>Cancel</button>
+
+                                    </td>
+
+                                    <%} else{%>
+                                        <td>
+                                            <%=nMonths-i%>
+                                        </td>
+                                        <td id="<%='tahun_'+j%>">
+                                            <%=2022+parseInt(i /12)%>
+                                        </td>
+                                        <td id="<%='bulan_'+j%>">
+                                            <%=months[parseInt(i%12)]%>
+                                        </td>
+                                        <td id="<%='container_'+j%>">
+                                            <a id="<%='brs_'+j%>" class="no-underline whitespace-nowrap nodata" href="">
+                                                -
+                                            </a>
+
+                                        </td>
+                                        <td class="flex">
+                                            <button id="<%='btnEdit'+'_'+j%>"
+                                                class="editBtn shadow p-2 rounded w-1/2">Edit</button>
+                                            <!-- <button id="<%='btnClr'+'_'+j%>" class="clearBtn shadow p-2 rounded w-1/3"
+                                                >Clear</button> -->
+                                            <button id="<%='btnCancel'+'_'+j%>"
+                                                class="disabled cancelBtn shadow p-2 rounded w-1/2 disabled:opacity-75"
+                                                disabled>Cancel</button>
+
+                                            <!-- <button id="<%='saveBrs'+'_'+j%>" class="saveBrs2" class="bg-green-500">Save</button> -->
+                                        </td>
+
+                                        <%}%>
+
+
+                            </tr>
+                            <% }%>
+
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- batas div -->
+            <div class="bg-white grid ml-3 mr-3 rounded shadow"></div>
+
+            <!-- footer -->
+            <div class=""><%- include('footer'); %></div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+        <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.js"></script>
+        <script type="module" src="../assets/js/script_brs.js"></script>
+
+</body>
+
+</html>

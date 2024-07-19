@@ -111,11 +111,11 @@ const mysql = require('mysql2/promise')
 const insertData = async (body) => {
 
     const connection = await mysql.createConnection({
-        host: 'localhost',
-        port: '3306',
-        user: 'root',
-        password: '',
-        database: 'skripsi_dashboard'
+        host:process.env.HOST,
+        port:process.env.PORT,
+        user:process.env.DB_USER,
+        password:'',
+        database:'skripsi_dashboard'
     })
 
     // Start transaction

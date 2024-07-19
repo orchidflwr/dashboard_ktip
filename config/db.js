@@ -1,8 +1,9 @@
+require('dotenv').config();
 const mysql = require('mysql2/promise');
 const dbPool=mysql.createPool({
-  host:'localhost',
-  port:'3306',
-  user:'root',
+  host:process.env.HOST,
+  port:process.env.PORT,
+  user:process.env.DB_USER,
   password:'',
   database:'skripsi_dashboard'
 });

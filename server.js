@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -18,8 +19,6 @@ const LocalStrategy = require('passport-local').Strategy;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ limit: '100mb' })); 
-
-// app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
 app.use(session({
   secret: 'secret',
   resave: true,
@@ -54,10 +53,10 @@ passport.deserializeUser(function (user, cb) {
 
 passport.use(new GoogleStrategy({
   
-  clientID: '934007791217-05u7053csbh78mo25h0gp6idpnuo8eqg.apps.googleusercontent.com',
-  clientSecret: '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',
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
   // callbackURL: "https://dashboard-ktip.onrender.com/google/callback",
-  callbackURL: "http://localhost:4000/google/callback",
+  callbackURL: process.env.CALLBACK_URL,
   scope: ['email', 'profile'],
   passReqToCallback: true
 },

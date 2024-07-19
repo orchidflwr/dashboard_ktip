@@ -570,11 +570,36 @@ function sectionTwo(url) {
           return event.value;
         })),
         inRange: {
-          color: [
-            '#EEF5FF',
-            '#B4D4FF',
-            '#86B6F6',
-            '#176B87'
+          // color: [
+          //   '#EEF5FF',
+          //   '#B4D4FF',
+          //   '#86B6F6',
+          //   '#176B87'
+          // ]
+          color:[
+            "#add8e6",
+  "#a1d2da",
+  "#96cccf",
+  "#8ac6c3",
+  "#7fb0b8",
+  "#74a9ad",
+  "#68a2a1",
+  "#5d9b96",
+  "#51948a",
+  "#468d7f",
+  "#3a8673",
+  "#2f8068",
+  "#23795c",
+  "#187251",
+  "#0c6b45",
+  "#01653a",
+  "#005e2e",
+  "#005823",
+  "#005118",
+  "#004b0c"
+            
+            
+                        
           ]
         },
         text: ['Tinggi', 'Rendah'],
@@ -3564,8 +3589,8 @@ function tpkWilayah(bulan,tahun){
         }
       },
       grid:{
-        top:40,
-        right:250,
+        top:100,
+        right:100,
         left:20,
         bottom:'5%',
         containLabel:true
@@ -3584,19 +3609,19 @@ function tpkWilayah(bulan,tahun){
       },
       parallelAxis: [
 
-        { dim: 8, name: 'TPK' ,nameTextStyle:{
+        { dim: 8, name: 'Tingkat Penghunian\n Kamar' ,nameTextStyle:{
           fontSize:15,
           fontWeight:'bold'
         },},
-        { dim:5, name: 'RLMTNUS' ,nameTextStyle:{
+        { dim:5, name: 'Rata-Rata Lama\nMenginap Tamu Nusantara' ,nameTextStyle:{
           fontSize:15,
           fontWeight:'bold'
         },},
-        { dim:6, name: 'RLMTA' ,nameTextStyle:{
+        { dim:6, name: 'Rata-Rata Lama\nMenginap Tamu Asing' ,nameTextStyle:{
           fontSize:15,
           fontWeight:'bold'
         },},
-        { dim: 7, name: 'RLMTGab' ,nameTextStyle:{
+        { dim: 7, name: 'Rata-Rata Lama\nMenginap Tamu Gabungan' ,nameTextStyle:{
           fontSize:15,
           fontWeight:'bold'
         },},

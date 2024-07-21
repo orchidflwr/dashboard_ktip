@@ -364,6 +364,7 @@ $(document).ready(function () {
                 // console.log(data.matrix);
                 // console.log(data.columns);
                 console.log(data.columns);
+                $('#tabCont').append('<div class="p-4"><ul><li>MKTS=Malam Kamar Terpakai Seluruh</li><li>MKTJ=Malam Kamar Terpakai Jumlah</li><li>TPK=Tingkat Penghunian Kamar</li><li>MTNUS = Malam Tamu Nusantara</li><li>MTA = Malam Tamu Asing</li><li>RLMTA = Rata-Rata Lama Malam Tamu Asing</li><li>RLMTNUS = Rata-Rata Lama Malam Tamu Nusantara</li><li>RLMTGAB = Rata-Rata Lama Malam Tamu Gabungan</li></ul></div>')
                
                 $('#tabCont').append('<table id="example" class="display nowrap bg-white"></table>');
                 var listHeader = [];

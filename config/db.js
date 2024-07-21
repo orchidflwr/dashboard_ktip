@@ -9,7 +9,6 @@ const dbPool=mysql.createPool({
   port:'14136',
   user:'root',
   password:'',
-
   database:'skripsi_dashboard'
 });
 

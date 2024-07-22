@@ -1,14 +1,14 @@
 require('dotenv').config();
 const mysql = require('mysql2/promise');
 const dbPool=mysql.createPool({
-  // host:process.env.HOST,
-  // port:process.env.PORT,
-  // user:process.env.DB_USER,
-  // password:'',
-  host:'0.tcp.ap.ngrok.io',
-  port:'14136',
-  user:'root',
+  host:process.env.HOST,
+  port:process.env.PORT,
+  user:process.env.DB_USER,
   password:'',
+  // host:'0.tcp.ap.ngrok.io',
+  // port:'14136',
+  // user:'root',
+  // password:'',
   database:'skripsi_dashboard'
 });
 
